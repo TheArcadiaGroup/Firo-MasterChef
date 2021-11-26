@@ -86,7 +86,7 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
 
     Locking public locking;
 
-    uint256 public poolLockedTime;
+    uint256 public lockingDuration;
 
     uint256 public vestingDuration;
 
@@ -106,7 +106,7 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
         uint256 _firoPerBlock,
         uint256 _startBlock,
         uint256 _bonusEndBlock,
-        uint256 _poolLockedTime,
+        uint256 _lockingDuration,
         uint256 _vestingDuration
         ) public initializer {
         __Ownable_init();
@@ -117,7 +117,7 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
         firoPerBlock = _firoPerBlock;
         startBlock = _startBlock;
         bonusEndBlock = _bonusEndBlock;
-        poolLockedTime = _poolLockedTime;
+        lockingDuration = _lockingDuration;
         vestingDuration = _vestingDuration;
     }
     /// @custom:oz-upgrades-unsafe-allow constructor
@@ -300,7 +300,7 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
         user.amount = user.amount.sub(_amount);
         user.rewardDebt = user.amount.mul(pool.accFiroPerShare).div(1e12);
         pool.lpToken.safeApprove(address(locking), _amount);
-        lock(address(pool.lpToken), msg.sender, _amount, poolLockedTime);
+        lock(address(pool.lpToken), msg.sender, _amount, lockingDuration);
         emit Withdraw(msg.sender, _pid, _amount);
     }
 

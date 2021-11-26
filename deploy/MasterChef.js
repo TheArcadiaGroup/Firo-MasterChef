@@ -7,16 +7,15 @@ const {
   } = require("../js-helpers/deploy");
 
   module.exports = async (hre) => {
-    const { ethers, upgrades, getNamedAccounts } = hre;
-    const { deployer, protocolOwner, trustedForwarder } = await getNamedAccounts();
+    const { ethers, upgrades } = hre;
     const network = await hre.network;
     const deployData = {};
 
+    const signers = await ethers.getSigners()
     const chainId = chainIdByName(network.name);
 
-    let [dev] = await ethers.getSigners();
-    startReward_blocknumber = await ethers.provider.getBlockNumber() + 1000;
-    endReward_blocknumber = startReward_blocknumber + 1000000;
+    startRewardBlock = await ethers.provider.getBlockNumber() + 1000;
+    endRewardBlock = startRewardBlock + 1000000;
 
     log('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
     log('MasterChef Contract Deployment');
@@ -24,10 +23,8 @@ const {
 
     log('  Using Network: ', chainNameById(chainId));
     log('  Using Accounts:');
-    log('  - Deployer:          ', deployer);
+    log('  - Deployer:          ', signers[0].address);
     log('  - network id:          ', chainId);
-    log('  - Owner:             ', protocolOwner);
-    log('  - Trusted Forwarder: ', trustedForwarder);
     log(' ');
 
     log("Deploying FiroToken...");
@@ -61,15 +58,15 @@ const {
         [firotoken.address,
         locking.address,
         vesting.address,
-        dev.address,
-        1,
-        startReward_blocknumber,
-        endReward_blocknumber,
-        3*86400,
-        86400], { unsafeAllow: ['delegatecall'], kind: 'uups' })
+        process.env.DEV_ADDRESS,
+        process.env.FIRO_PER_BLOCK,
+        startRewardBlock,
+        endRewardBlock,
+        process.env.LOCKING_DURATION,
+        process.env.VESTING_DURATION], { unsafeAllow: ['delegatecall'], kind: 'uups' })
     await locking.initialize(masterchef.address);
     await vesting.initialize(firotoken.address, masterchef.address);
-    await firotoken.mint(vesting.address, 500000000000000);
+    await firotoken.mint(vesting.address, process.env.VESTING_FIRO_SUPPLY);
     log('  - MasterChef:         ', masterchef.address);
 
     deployData['MasterChef'] = {

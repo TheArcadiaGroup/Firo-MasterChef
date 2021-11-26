@@ -41,7 +41,7 @@ describe("MasterChef Test", async function() {
             1,
             startReward_blocknumber,
             endReward_blocknumber,
-            3*86400,
+            2*86400,
             86400], { unsafeAllow: ['delegatecall'], kind: 'uups' })
 
         const ERC20MockInstance = await ERC20Mock.deploy();
@@ -123,7 +123,7 @@ describe("MasterChef Test", async function() {
         expect(amounts[0]).to.equal(1000);
         expect(amounts[1]).to.equal(2000);
 
-        await ethers.provider.send('evm_increaseTime', [2*86400]); // 2 days
+        await ethers.provider.send('evm_increaseTime', [1*86400]); // 1 days
         await expect(
             masterchef.unlock(user2.address,0)
           ).to.be.revertedWith("Already withdrawn or not unlockable yet");
@@ -139,6 +139,9 @@ describe("MasterChef Test", async function() {
         await masterchef.unlockVesting(user2.address);
         afterFiroToken = await firotoken.balanceOf(user2.address);
         expect(afterFiroToken-beforeFiroToken).to.equal(3000);
+
+        await expect(vesting.addVesting(user1.address, "3000", 0, 0)).to.be.revertedWith('only vester can add vesting');
+        await expect(locking.lock(firotoken.address, user1.address, 0, 0)).to.be.revertedWith('only locker can lock');
     })  
 
     it("emergencyWithdraw", async function (){ 

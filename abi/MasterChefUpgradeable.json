@@ -488,7 +488,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_poolLockedTime",
+        "name": "_lockingDuration",
         "type": "uint256"
       },
       {
@@ -538,6 +538,19 @@
         "internalType": "contract Locking",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lockingDuration",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -655,19 +668,6 @@
   {
     "inputs": [],
     "name": "poolLength",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "poolLockedTime",
     "outputs": [
       {
         "internalType": "uint256",

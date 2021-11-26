@@ -25,6 +25,7 @@ contract Locking is Initializable, OwnableUpgradeable, ILocking {
     event SetLocker(address locker, bool val);
 
     function initialize(address _locker) external initializer {
+        __Ownable_init();
         lockers[_locker] = true;
         emit SetLocker(_locker, true);
     }
