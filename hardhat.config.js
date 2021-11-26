@@ -49,16 +49,16 @@ task(
          url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`
        }
      },
-    //  kovan: {
-    //    url: `https://kovan.infura.io/v3/${process.env.INFURA_KEY}`,
-    //    gasPrice: 6e9,
-    //    accounts: [process.env.PRIVATE_KEY_42],
-    //  },
-    //  mainnet: {
-    //    url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-    //    gasPrice: 100e9,
-    //    accounts: [process.env.PRIVATE_KEY_1],
-    //  }
+     kovan: {
+       url: `https://kovan.infura.io/v3/${process.env.INFURA_KEY}`,
+       gasPrice: 6e9,
+       accounts: [process.env.PRIVATE_KEY_42],
+     },
+     mainnet: {
+       url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
+       gasPrice: 100e9,
+       accounts: [process.env.PRIVATE_KEY_1],
+     }
    },
    solidity: {
      version: "0.8.3",
