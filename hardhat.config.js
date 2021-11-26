@@ -41,9 +41,6 @@ task(
  module.exports = {
    defaultNetwork: "hardhat",
    networks: {
-     localhost: {
-        url: "http://127.0.0.1:8545"
-     },
      hardhat: {
        forking: {
          url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`
