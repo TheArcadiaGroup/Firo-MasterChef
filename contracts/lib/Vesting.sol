@@ -74,7 +74,7 @@ contract Vesting is Initializable, OwnableUpgradeable, BlackholePrevention {
 
     function unlockVesting(address _addr) public {
         uint256 l = vestings[_addr].length;
-        Vesting[] storage _vestings = vestings[_addr];
+        VestingInfo[] storage _vestings = vestings[_addr];
 
         uint256 k = l;
         while (k > 0) {

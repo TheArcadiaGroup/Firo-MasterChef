@@ -49,13 +49,25 @@ task(
      kovan: {
        url: `https://kovan.infura.io/v3/${process.env.INFURA_KEY}`,
        gasPrice: 6e9,
-       accounts: [process.env.PRIVATE_KEY_42],
+       accounts: [process.env.PRIVATE_KEY],
      },
      mainnet: {
        url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
        gasPrice: 100e9,
-       accounts: [process.env.PRIVATE_KEY_1],
-     }
+       accounts: [process.env.PRIVATE_KEY_MAINNET],
+     },
+     bsc: {
+      url: `https://bsc-dataseed.binance.org/`,
+      gasPrice: 6e9,
+      blockGasLimit: 22400000,
+      accounts: [process.env.PRIVATE_KEY_MAINNET]
+    },
+    bsctestnet: {
+      url: `https://data-seed-prebsc-1-s1.binance.org:8545/`,
+      gasPrice: 20e9,
+      blockGasLimit: 22400000,
+      accounts: [process.env.PRIVATE_KEY]
+    }
    },
    solidity: {
      version: "0.8.3",
