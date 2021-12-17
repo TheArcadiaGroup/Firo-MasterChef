@@ -23,7 +23,9 @@ interface IMigratorChef {
     // FiroSwap must mint EXACTLY the same amount of FiroSwap LP tokens or
     // else something bad will happen. Traditional UniswapV2 does not
     // do that so be careful!
-    function migrate(IERC20Upgradeable token) external returns (IERC20Upgradeable);
+    function migrate(IERC20Upgradeable token)
+        external
+        returns (IERC20Upgradeable);
 }
 
 // MasterChef is the master of Firo. He can make Firo and he is a fair guy.
@@ -60,7 +62,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         uint256 allocPoint; // How many allocation points assigned to this pool. FIROs to distribute per block.
         uint256 lastRewardBlock; // Last block number that FIROs distribution occurs.
         uint256 accFiroPerShare; // Accumulated FIROs per share, times 1e12. See below.
-        bool    isEmergency;
+        bool isEmergency;
     }
     // The FIRO TOKEN!
     FiroToken public firo;
@@ -108,7 +110,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         uint256 _bonusEndBlock,
         uint256 _lockingDuration,
         uint256 _vestingDuration
-        ) public initializer {
+    ) public initializer {
         __Ownable_init();
         firo = FiroToken(_firo);
         locking = Locking(_locking);
@@ -120,6 +122,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         lockingDuration = _lockingDuration;
         vestingDuration = _vestingDuration;
     }
+
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() initializer {}
 
@@ -139,8 +142,9 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         if (_withUpdate) {
             massUpdatePools();
         }
-        uint256 lastRewardBlock =
-            block.number > startBlock ? block.number : startBlock;
+        uint256 lastRewardBlock = block.number > startBlock
+            ? block.number
+            : startBlock;
         totalAllocPoint = totalAllocPoint.add(_allocPoint);
         poolInfo.push(
             PoolInfo({
@@ -196,10 +200,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         } else if (_from >= bonusEndBlock) {
             return _to.sub(_from);
         } else {
-            return
-                bonusEndBlock.sub(_from).add(
-                    _to.sub(bonusEndBlock)
-                );
+            return bonusEndBlock.sub(_from).add(_to.sub(bonusEndBlock));
         }
     }
 
@@ -214,12 +215,14 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         uint256 accFiroPerShare = pool.accFiroPerShare;
         uint256 lpSupply = pool.lpToken.balanceOf(address(this));
         if (block.number > pool.lastRewardBlock && lpSupply != 0) {
-            uint256 multiplier =
-                getMultiplier(pool.lastRewardBlock, block.number);
-            uint256 firoReward =
-                multiplier.mul(firoPerBlock).mul(pool.allocPoint).div(
-                    totalAllocPoint
-                );
+            uint256 multiplier = getMultiplier(
+                pool.lastRewardBlock,
+                block.number
+            );
+            uint256 firoReward = multiplier
+                .mul(firoPerBlock)
+                .mul(pool.allocPoint)
+                .div(totalAllocPoint);
             accFiroPerShare = accFiroPerShare.add(
                 firoReward.mul(1e12).div(lpSupply)
             );
@@ -247,10 +250,10 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
             return;
         }
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
-        uint256 firoReward =
-            multiplier.mul(firoPerBlock).mul(pool.allocPoint).div(
-                totalAllocPoint
-            );
+        uint256 firoReward = multiplier
+            .mul(firoPerBlock)
+            .mul(pool.allocPoint)
+            .div(totalAllocPoint);
         vesting.sendRewardForDev(devaddr, firoReward.div(10));
         pool.accFiroPerShare = pool.accFiroPerShare.add(
             firoReward.mul(1e12).div(lpSupply)
@@ -264,14 +267,19 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         UserInfo storage user = userInfo[_pid][msg.sender];
         updatePool(_pid);
         if (user.amount > 0) {
-            uint256 pending =
-                user.amount.mul(pool.accFiroPerShare).div(1e12).sub(
-                    user.rewardDebt
+            uint256 pending = user
+                .amount
+                .mul(pool.accFiroPerShare)
+                .div(1e12)
+                .sub(user.rewardDebt);
+            if (pending > 0) {
+                addVesting(
+                    msg.sender,
+                    pending,
+                    block.timestamp,
+                    vestingDuration
                 );
-            if(pending>0) {
-                addVesting(msg.sender, pending, block.timestamp, vestingDuration);
             }
-            
         }
         pool.lpToken.safeTransferFrom(
             address(msg.sender),
@@ -290,12 +298,11 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         UserInfo storage user = userInfo[_pid][msg.sender];
         require(user.amount >= _amount, "withdraw: not good");
         updatePool(_pid);
-        uint256 pending =
-            user.amount.mul(pool.accFiroPerShare).div(1e12).sub(
-                user.rewardDebt
-            );
-        if(pending>0) {
-                addVesting(msg.sender, pending, block.timestamp, vestingDuration);
+        uint256 pending = user.amount.mul(pool.accFiroPerShare).div(1e12).sub(
+            user.rewardDebt
+        );
+        if (pending > 0) {
+            addVesting(msg.sender, pending, block.timestamp, vestingDuration);
         }
         user.amount = user.amount.sub(_amount);
         user.rewardDebt = user.amount.mul(pool.accFiroPerShare).div(1e12);
@@ -308,8 +315,8 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     function emergencyWithdraw(uint256 _pid) public {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
-        if (pool.isEmergency == false) return;
-        pool.lpToken.safeTransfer(address(msg.sender), user.amount);    
+        require(pool.isEmergency, "!isEmergency");
+        pool.lpToken.safeTransfer(address(msg.sender), user.amount);
         emit EmergencyWithdraw(msg.sender, _pid, user.amount);
         user.amount = 0;
         user.rewardDebt = 0;
@@ -326,31 +333,49 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         devaddr = _devaddr;
     }
 
-    function getUserInfo(uint256 _pid, address _user) public view returns (uint256 amount, uint256 rewardDebt){
+    function getUserInfo(uint256 _pid, address _user)
+        public
+        view
+        returns (uint256 amount, uint256 rewardDebt)
+    {
         amount = userInfo[_pid][_user].amount;
         rewardDebt = userInfo[_pid][_user].rewardDebt;
     }
 
-    function getPoolInfo(uint256 _pid) public view returns (
-        uint256 allocPoint, 
-        uint256 lastRewardBlock, 
-        uint256 accFiroPerShare
-        ){
+    function getPoolInfo(uint256 _pid)
+        public
+        view
+        returns (
+            uint256 allocPoint,
+            uint256 lastRewardBlock,
+            uint256 accFiroPerShare
+        )
+    {
         allocPoint = poolInfo[_pid].allocPoint;
         lastRewardBlock = poolInfo[_pid].lastRewardBlock;
         accFiroPerShare = poolInfo[_pid].accFiroPerShare;
     }
 
     // Safe firo transfer function, just in case if rounding error causes pool to not have enough FIROs.
-    function addVesting(address _addr, uint256 _amount, uint256 _startVestingTime, uint256 _duration) internal {
+    function addVesting(
+        address _addr,
+        uint256 _amount,
+        uint256 _startVestingTime,
+        uint256 _duration
+    ) internal {
         vesting.addVesting(_addr, _amount, _startVestingTime, _duration);
     }
 
     function unlockVesting(address _addr) public {
         vesting.unlockVesting(_addr);
-    }    
+    }
 
-    function lock(address _token, address _addr, uint256 _amount, uint256 _lockedTime) public {
+    function lock(
+        address _token,
+        address _addr,
+        uint256 _amount,
+        uint256 _lockedTime
+    ) public {
         locking.lock(_token, _addr, _amount, _lockedTime);
     }
 
@@ -358,7 +383,10 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         locking.unlock(_addr, index);
     }
 
-    function getLockInfo(address _user) external view returns (
+    function getLockInfo(address _user)
+        external
+        view
+        returns (
             bool[] memory isWithdrawns,
             address[] memory tokens,
             uint256[] memory unlockableAts,
@@ -368,7 +396,10 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         return locking.getLockInfo(_user);
     }
 
-    function getLockInfoByIndexes(address _addr, uint256[] memory _indexes) external view returns (
+    function getLockInfoByIndexes(address _addr, uint256[] memory _indexes)
+        external
+        view
+        returns (
             bool[] memory isWithdrawns,
             address[] memory tokens,
             uint256[] memory unlockableAts,
@@ -380,5 +411,5 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
 
     function getLockInfoLength(address _addr) external view returns (uint256) {
         return locking.getLockInfoLength(_addr);
-    }    
+    }
 }

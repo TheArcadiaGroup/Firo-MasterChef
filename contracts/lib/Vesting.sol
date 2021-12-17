@@ -25,16 +25,18 @@ contract Vesting is Initializable, OwnableUpgradeable, BlackholePrevention {
     uint256 public duration;
     mapping(address => bool) public vesters;
 
-    event Lock(address user, uint256 amount, uint256 startVestingTime, uint256 duration);
+    event Lock(
+        address user,
+        uint256 amount,
+        uint256 startVestingTime,
+        uint256 duration
+    );
     event Unlock(address user, uint256 amount);
     event SetVester(address locker, bool val);
 
     // address internal masterchef;
 
-    function initialize(address _token, address _vester)
-        public
-        initializer
-    {
+    function initialize(address _token, address _vester) public initializer {
         __Ownable_init();
         token = IERC20Upgradeable(_token);
         vesters[_vester] = true;
@@ -58,6 +60,7 @@ contract Vesting is Initializable, OwnableUpgradeable, BlackholePrevention {
         uint256 _duration
     ) external {
         require(vesters[msg.sender], "only vester can add vesting");
+        unlockVesting(_addr);
         vestings[_addr].push(
             VestingInfo({
                 releasedAmount: 0,
@@ -71,15 +74,29 @@ contract Vesting is Initializable, OwnableUpgradeable, BlackholePrevention {
 
     function unlockVesting(address _addr) public {
         uint256 l = vestings[_addr].length;
-        for (uint256 i = 0; i < l; i++) {
+        Vesting[] storage _vestings = vestings[_addr];
+
+        uint256 k = l;
+        while (k > 0) {
+            uint256 i = k - 1;
             uint256 unlockable = getUnlockableVesting(_addr, i);
             if (unlockable > 0) {
-                vestings[_addr][i].releasedAmount = vestings[_addr][i]
-                    .releasedAmount
-                    .add(unlockable);
+                _vestings[i].releasedAmount = _vestings[i].releasedAmount.add(
+                    unlockable
+                );
                 token.safeTransfer(_addr, unlockable);
+                if (_vestings[i].releasedAmount >= _vestings[i].totalAmount) {
+                    //remove vesting i
+                    uint256 currentLast = _vestings.length - 1;
+                    _vestings[i].releasedAmount = _vestings[currentLast]
+                        .releasedAmount;
+                    _vestings[i].totalAmount = _vestings[currentLast]
+                        .totalAmount;
+                    _vestings.pop();
+                }
                 emit Unlock(_addr, unlockable);
             }
+            k--;
         }
     }
 
@@ -106,7 +123,9 @@ contract Vesting is Initializable, OwnableUpgradeable, BlackholePrevention {
 
         uint256 timeElapsed = block.timestamp.sub(vesting.startVestingTime);
 
-        uint256 releasable = timeElapsed.mul(vesting.totalAmount).div(vesting.duration);
+        uint256 releasable = timeElapsed.mul(vesting.totalAmount).div(
+            vesting.duration
+        );
         if (releasable > vesting.totalAmount) {
             releasable = vesting.totalAmount;
         }
@@ -130,11 +149,10 @@ contract Vesting is Initializable, OwnableUpgradeable, BlackholePrevention {
         _locked = remainLocked.sub(_releasable);
     }
 
-    function sendRewardForDev(address devaddr, uint256 amount) external
-    {
+    function sendRewardForDev(address devaddr, uint256 amount) external {
         require(vesters[msg.sender], "only vester can send reward for dev");
         token.safeTransfer(devaddr, amount);
-    }    
+    }
 
     function withdrawEther(address payable receiver, uint256 amount)
         external
