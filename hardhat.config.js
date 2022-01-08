@@ -51,16 +51,16 @@ task(
        gasPrice: 6e9,
        accounts: [process.env.PRIVATE_KEY],
      },
-     mainnet: {
+     ethmainnet: {
        url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
        gasPrice: 100e9,
-       accounts: [process.env.PRIVATE_KEY_MAINNET],
+       accounts: [process.env.PRIVATE_KEY],
      },
-     bsc: {
+     bscmainnet: {
       url: `https://bsc-dataseed.binance.org/`,
       gasPrice: 6e9,
       blockGasLimit: 22400000,
-      accounts: [process.env.PRIVATE_KEY_MAINNET]
+      accounts: [process.env.PRIVATE_KEY]
     },
     bsctestnet: {
       url: `https://data-seed-prebsc-1-s1.binance.org:8545/`,
@@ -94,4 +94,9 @@ task(
     clear: true,
     flat: true,
    },
+   etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://bscscan.com/
+    apiKey: process.env.BSC_APIKEY
+  },
  };

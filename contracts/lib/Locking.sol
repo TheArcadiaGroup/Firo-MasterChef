@@ -68,7 +68,11 @@ contract Locking is Initializable, OwnableUpgradeable, ILocking {
         //we add this check for avoiding too much vesting
         require(lockers[msg.sender], "only locker can lock");
         if (_amount > 0) {
-            IERC20Upgradeable(_token).safeTransferFrom(msg.sender, address(this), _amount);
+            IERC20Upgradeable(_token).safeTransferFrom(
+                msg.sender,
+                address(this),
+                _amount
+            );
 
             lockInfo[_addr].push(
                 LockInfo({
@@ -142,5 +146,5 @@ contract Locking is Initializable, OwnableUpgradeable, ILocking {
         returns (uint256)
     {
         return lockInfo[_addr].length;
-    }    
+    }
 }

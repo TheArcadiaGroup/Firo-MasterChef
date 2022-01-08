@@ -101,7 +101,6 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     );
 
     function initialize(
-        address _firo,
         address _locking,
         address _vesting,
         address _devaddr,
@@ -112,7 +111,6 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         uint256 _vestingDuration
     ) public initializer {
         __Ownable_init();
-        firo = FiroToken(_firo);
         locking = Locking(_locking);
         vesting = Vesting(_vesting);
         devaddr = _devaddr;
