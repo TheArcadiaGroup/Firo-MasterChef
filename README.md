@@ -10,7 +10,6 @@ Copy env.example to .env and fill the required information
 
 For example:
 PRIVATE_KEY = ""
-INFURA_KEY = ""
 FIRO_PER_BLOCK = (firo*10^18)
 LOCKING_DURATION = (86400 = 24*60*60 = 1day)
 VESTING_DURATION = (86400 = 24*60*60 = 1 day)
