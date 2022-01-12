@@ -149,11 +149,6 @@ contract Vesting is Initializable, OwnableUpgradeable, BlackholePrevention {
         _locked = remainLocked.sub(_releasable);
     }
 
-    function sendRewardForDev(address devaddr, uint256 amount) external {
-        require(vesters[msg.sender], "only vester can send reward for dev");
-        token.safeTransfer(devaddr, amount);
-    }
-
     function withdrawEther(address payable receiver, uint256 amount)
         external
         virtual

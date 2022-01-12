@@ -42,19 +42,6 @@ task(
    defaultNetwork: "hardhat",
    networks: {
      hardhat: {
-       forking: {
-         url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`
-       }
-     },
-     kovan: {
-       url: `https://kovan.infura.io/v3/${process.env.INFURA_KEY}`,
-       gasPrice: 6e9,
-       accounts: [process.env.PRIVATE_KEY],
-     },
-     ethmainnet: {
-       url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-       gasPrice: 100e9,
-       accounts: [process.env.PRIVATE_KEY],
      },
      bscmainnet: {
       url: `https://bsc-dataseed.binance.org/`,

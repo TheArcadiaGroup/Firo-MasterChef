@@ -12,7 +12,7 @@ async function advanceBlockTo(blockNumber) {
 }
 
 describe("MasterChef Test", async function () {
-    let [dev, user1, user2] = await ethers.getSigners();
+    let [owner, user1, user2] = await ethers.getSigners();
     let firotoken, masterchef, erc20Mock;
     const FiroToken = await ethers.getContractFactory("FiroToken");
     const MasterChef = await ethers.getContractFactory('MasterChef');
@@ -36,7 +36,6 @@ describe("MasterChef Test", async function () {
             MasterChef,
             [locking.address,
             vesting.address,
-            dev.address,
                 1,
                 startReward_blocknumber,
                 endReward_blocknumber,
@@ -55,11 +54,6 @@ describe("MasterChef Test", async function () {
 
     })
 
-    it("check dev address", async function () {
-        const devaddr = await masterchef.devaddr();
-        expect(devaddr).to.equal(dev.address);
-    })
-
     it("Deposit-Vesting", async function () {
         await masterchef.add("100", erc20Mock.address, true);
         await erc20Mock.connect(user1).approve(masterchef.address, "5000000");
@@ -74,10 +68,7 @@ describe("MasterChef Test", async function () {
         expect(await masterchef.pendingFiro(0, user1.address)).to.equal("1999");
 
         await advanceBlockTo(startReward_blocknumber + 3000 - 1);
-        beforeDev = await firotoken.balanceOf(dev.address);
         await masterchef.connect(user1).deposit(0, "0");
-        afterDev = await firotoken.balanceOf(dev.address);
-        expect(afterDev - beforeDev).to.equal(300);
 
         await ethers.provider.send('evm_increaseTime', [43200]);
         beforeFiroToken = await firotoken.balanceOf(user1.address);

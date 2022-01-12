@@ -67,8 +67,6 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     // The FIRO TOKEN!
     FiroToken public firo;
 
-    // Dev address.
-    address public devaddr;
     // Block number when bonus FIRO period ends.
     uint256 public bonusEndBlock;
     // FIRO tokens created per block.
@@ -103,7 +101,6 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     function initialize(
         address _locking,
         address _vesting,
-        address _devaddr,
         uint256 _firoPerBlock,
         uint256 _startBlock,
         uint256 _bonusEndBlock,
@@ -113,7 +110,6 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         __Ownable_init();
         locking = Locking(_locking);
         vesting = Vesting(_vesting);
-        devaddr = _devaddr;
         firoPerBlock = _firoPerBlock;
         startBlock = _startBlock;
         bonusEndBlock = _bonusEndBlock;
@@ -252,7 +248,6 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
             .mul(firoPerBlock)
             .mul(pool.allocPoint)
             .div(totalAllocPoint);
-        vesting.sendRewardForDev(devaddr, firoReward.div(10));
         pool.accFiroPerShare = pool.accFiroPerShare.add(
             firoReward.mul(1e12).div(lpSupply)
         );
@@ -323,12 +318,6 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     function setEmergency(uint256 _pid, bool _isEmergency) public onlyOwner {
         require(_pid < poolInfo.length, "pid is invalid");
         poolInfo[_pid].isEmergency = _isEmergency;
-    }
-
-    // Update dev address by the previous dev.
-    function dev(address _devaddr) public {
-        require(msg.sender == devaddr, "dev: wut?");
-        devaddr = _devaddr;
     }
 
     function getUserInfo(uint256 _pid, address _user)

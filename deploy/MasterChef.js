@@ -47,7 +47,6 @@ module.exports = async (hre) => {
     MasterChef,
     [locking.address,
     vesting.address,
-    process.env.DEV_ADDRESS,
     process.env.FIRO_PER_BLOCK,
     process.env.START_REWARD_BLOCK_NUMBER,
     process.env.END_REWARD_BLOCK_NUMBER,

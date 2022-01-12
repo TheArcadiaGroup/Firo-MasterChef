@@ -2,155 +2,50 @@
   "manifestVersion": "3.2",
   "proxies": [
     {
-      "address": "0xAA292E8611aDF267e563f334Ee42320aC96D0463",
-      "txHash": "0xd10573de6cf690422e23a11bbb1259902b30568373e6a94445bdcf29b391aab9",
+      "address": "0x4ed7c70F96B99c776995fB64377f0d4aB3B0e1C1",
+      "txHash": "0x4d9bc39820e25809131a7f6d0ad45b3ac5722285609739b44797b0d91fd377c3",
       "kind": "uups"
     },
     {
-      "address": "0xab16A69A5a8c12C732e0DEFF4BE56A70bb64c926",
-      "txHash": "0x4c9336ecf471177c0d8d8a2cac4ac56aa65e834f270cffba7a9f6e287b2c2760",
+      "address": "0x95401dc811bb5740090279Ba06cfA8fcF6113778",
+      "txHash": "0xac2c1e21283e749750f738bab3e2f1d7d3b51db3eb1d28bad4d32212cfb0a735",
       "kind": "uups"
     },
     {
-      "address": "0xCA8c8688914e0F7096c920146cd0Ad85cD7Ae8b9",
-      "txHash": "0xf3811c14c553a2a71fd21d9fafabb28e91b5042ee4d72ff8184a547c469dac84",
+      "address": "0x1291Be112d480055DaFd8a610b7d1e203891C274",
+      "txHash": "0x14396579cff67f8f425660ebc937a2ddb99a517a8a9297e06edc50a33035a777",
       "kind": "uups"
     },
     {
-      "address": "0x6C2d83262fF84cBaDb3e416D527403135D757892",
-      "txHash": "0xc0aaf2e33f8794b3dd30bac6a4c8763ea4868fbe94c8feb6523adfd9cdc354f2",
+      "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      "txHash": "0x70ec37bb3d58024fa067bc14cc06e3dd61d2fa422a8b48d85832244b04de1fb9",
       "kind": "uups"
     },
     {
-      "address": "0x4C2F7092C2aE51D986bEFEe378e50BD4dB99C901",
-      "txHash": "0xfd26d47d6ec6ed567d7b20958df60101a78dd5170cb5826db09ca0dd127d7199",
+      "address": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      "txHash": "0x13ab5f8dbca3fbadbd1693e6479f89424caaeffaeb551cadec000b5107ddd212",
       "kind": "uups"
     },
     {
-      "address": "0x457cCf29090fe5A24c19c1bc95F492168C0EaFdb",
-      "txHash": "0xcb9a6a53a8699e098dfe2bd272d525b704646b15ffdf737ca623eb50985f9374",
+      "address": "0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f",
+      "txHash": "0x4787738fb59ed5d66bebb8219499c44384490899e4a2d3004841f244ad937b12",
       "kind": "uups"
     },
     {
-      "address": "0xCace1b78160AE76398F486c8a18044da0d66d86D",
-      "txHash": "0x0d7c67d1a75f777cce44b822436ec3c97035ee5cd982c9d9cba6479b7f011009",
+      "address": "0x70e0bA845a1A0F2DA3359C97E0285013525FFC49",
+      "txHash": "0x7d4091a0d5693c228dcf02ecb1d0f2957bd20364fc5b4d13d4d948dde0983b3c",
       "kind": "uups"
     },
     {
-      "address": "0x22753E4264FDDc6181dc7cce468904A80a363E44",
-      "txHash": "0x52c71ad7e70ca25c2cf56fb93386f60697b05678b92a6ca67d5ab3eabde0e2e6",
-      "kind": "uups"
-    },
-    {
-      "address": "0xE3011A37A904aB90C8881a99BD1F6E21401f1522",
-      "txHash": "0x959001782fe45825b2ad3b51989a3ed8c9e7d1b9f1f60e697dab92e443fe4554",
-      "kind": "uups"
-    },
-    {
-      "address": "0x6F6f570F45833E249e27022648a26F4076F48f78",
-      "txHash": "0xdbe78cf96ff44f6547af0dd34681e742881a63f1b9f7e0c701b5f2b119186e80",
-      "kind": "uups"
-    },
-    {
-      "address": "0x5302E909d1e93e30F05B5D6Eea766363D14F9892",
-      "txHash": "0x148afc3d9f532526c0f36ead0172efd91e2466b651b7f45b014f7e3865a030ab",
-      "kind": "uups"
-    },
-    {
-      "address": "0xB2b580ce436E6F77A5713D80887e14788Ef49c9A",
-      "txHash": "0x7d62142c6db8d766e71f8f0e1315a2d1b1533d78298d5470723c140f9f3219a1",
-      "kind": "uups"
-    },
-    {
-      "address": "0x38a024C0b412B9d1db8BC398140D00F5Af3093D4",
-      "txHash": "0x5c02a949fee8f3faae1dd7f07676bdee2071988b3ce17a6ec1246e797f5e8c0f",
-      "kind": "uups"
-    },
-    {
-      "address": "0x976fcd02f7C4773dd89C309fBF55D5923B4c98a1",
-      "txHash": "0xe8985f94410a44a634bd85b319bc92a14577930749b555edc897c3600ca1041c",
-      "kind": "uups"
-    },
-    {
-      "address": "0x96F3Ce39Ad2BfDCf92C0F6E2C2CAbF83874660Fc",
-      "txHash": "0x14f8b2ed13570bdb5affcdd284450479816b875de597d537dedd2b09fa8c8005",
-      "kind": "uups"
-    },
-    {
-      "address": "0x74Cf9087AD26D541930BaC724B7ab21bA8F00a27",
-      "txHash": "0xa99239a8ea61f2e5eb9a02f7034444f5c7ac75b02fab610036c4d223d7a79adf",
-      "kind": "uups"
-    },
-    {
-      "address": "0xc0F115A19107322cFBf1cDBC7ea011C19EbDB4F8",
-      "txHash": "0xe5a813ce78992813f235efe04ab4d406eeb61e02fe7ebce8d41e773786b1f008",
-      "kind": "uups"
-    },
-    {
-      "address": "0x276C216D241856199A83bf27b2286659e5b877D3",
-      "txHash": "0xb7894a8c5e420d258118870ca1f48b78ad1ae756aab76937b09237630e4ecc01",
-      "kind": "uups"
-    },
-    {
-      "address": "0x525C7063E7C20997BaaE9bDa922159152D0e8417",
-      "txHash": "0x7da4e6a7eba3f65ed40747c57b19d58e821734e530f29c05b4450ba1b505de5b",
-      "kind": "uups"
-    },
-    {
-      "address": "0x5FeaeBfB4439F3516c74939A9D04e95AFE82C4ae",
-      "txHash": "0x2d80295a2c6f33c00c50e37f2392ddc1a8d26e20df16335503eab907e1508981",
-      "kind": "uups"
-    },
-    {
-      "address": "0x40a42Baf86Fc821f972Ad2aC878729063CeEF403",
-      "txHash": "0xee2a07df16c909474a2980be2fba44a76c8763e43efe6eea1f515eab4275d8ab",
-      "kind": "uups"
-    },
-    {
-      "address": "0x8bCe54ff8aB45CB075b044AE117b8fD91F9351aB",
-      "txHash": "0xa477c9bc33f760d6bdb50b244f25d0a9870851dd8c5722d1c4be5d6bff8f201b",
-      "kind": "uups"
-    },
-    {
-      "address": "0x3155755b79aA083bd953911C92705B7aA82a18F9",
-      "txHash": "0x3670cbcd84ce44f4b357661d4ca42190bb852479a08fc36140294238b367c909",
-      "kind": "uups"
-    },
-    {
-      "address": "0x3347B4d90ebe72BeFb30444C9966B2B990aE9FcB",
-      "txHash": "0xae97dde4ef3047e87ead6931ed86fe094ed328367e2219c27ef1587e33d7fd1d",
-      "kind": "uups"
-    },
-    {
-      "address": "0x1f10F3Ba7ACB61b2F50B9d6DdCf91a6f787C0E82",
-      "txHash": "0xd6d71ed58bb555a1970c0fa62d499babf71ae01bd282d1f6e87e166db1de6277",
-      "kind": "uups"
-    },
-    {
-      "address": "0xF32D39ff9f6Aa7a7A64d7a4F00a54826Ef791a55",
-      "txHash": "0xd6050a9fa41228c37a016e10d02dfa1bb055f855655c02f3e5ff0974a8c5a3e1",
-      "kind": "uups"
-    },
-    {
-      "address": "0x02b0B4EFd909240FCB2Eb5FAe060dC60D112E3a4",
-      "txHash": "0x79dce34b7cdcee4a58f541b466bf38b8e9916911f80b5e9a2f5e3558b6b7cba7",
-      "kind": "uups"
-    },
-    {
-      "address": "0xc582Bc0317dbb0908203541971a358c44b1F3766",
-      "txHash": "0xd177cbc82845bca1737aabb8b0ea29d3bcf9e5a1017225652bd7c806ef1521e3",
-      "kind": "uups"
-    },
-    {
-      "address": "0xddE78e6202518FF4936b5302cC2891ec180E8bFf",
-      "txHash": "0xd447aa8863c9859015a3a5fa9ecf5457ee4bedd035f64e0dfe7386fda2565f6e",
+      "address": "0xb7278A61aa25c888815aFC32Ad3cC52fF24fE575",
+      "txHash": "0xba89e14a5b38c296dfbadb92ed38b79eabb865f3cce164634f6669c6b49b3145",
       "kind": "uups"
     }
   ],
   "impls": {
-    "5a1b48a942327d0f22022c3847c35d5b2a464654e9251019f7ffb5ba7177653b": {
-      "address": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
-      "txHash": "0x8e187736e87160b7956d848f62afb6c19b85cdea3aea7520d44263a0034eaced",
+    "d073f11cd7c81514d7372a526eace6b020f60feb98517d11d09e194450d4920f": {
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "txHash": "0xe30df0eedd618ade23e1e720c871589e38d5c4028ede2bd7cda769bc4ef2d3b7",
       "layout": {
         "storage": [
           {
@@ -199,13 +94,7 @@
             "contract": "MasterChef",
             "label": "firo",
             "type": "t_contract(FiroToken)3510",
-            "src": "contracts/MasterChef.sol:66"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "devaddr",
-            "type": "t_address",
-            "src": "contracts/MasterChef.sol:69"
+            "src": "contracts/MasterChef.sol:68"
           },
           {
             "contract": "MasterChef",
@@ -252,13 +141,13 @@
           {
             "contract": "MasterChef",
             "label": "vesting",
-            "type": "t_contract(Vesting)7177",
+            "type": "t_contract(Vesting)7124",
             "src": "contracts/MasterChef.sol:85"
           },
           {
             "contract": "MasterChef",
             "label": "locking",
-            "type": "t_contract(Locking)6669",
+            "type": "t_contract(Locking)6581",
             "src": "contracts/MasterChef.sol:87"
           },
           {
@@ -277,9 +166,6 @@
         "types": {
           "t_contract(FiroToken)3510": {
             "label": "contract FiroToken"
-          },
-          "t_address": {
-            "label": "address"
           },
           "t_uint256": {
             "label": "uint256"
@@ -327,6 +213,9 @@
           "t_mapping(t_address,t_struct(UserInfo)3549_storage)": {
             "label": "mapping(address => struct MasterChef.UserInfo)"
           },
+          "t_address": {
+            "label": "address"
+          },
           "t_struct(UserInfo)3549_storage": {
             "label": "struct MasterChef.UserInfo",
             "members": [
@@ -340,10 +229,10 @@
               }
             ]
           },
-          "t_contract(Vesting)7177": {
+          "t_contract(Vesting)7124": {
             "label": "contract Vesting"
           },
-          "t_contract(Locking)6669": {
+          "t_contract(Locking)6581": {
             "label": "contract Locking"
           },
           "t_array(t_uint256)49_storage": {
@@ -355,9 +244,9 @@
         }
       }
     },
-    "c3278626b28487691cdf1612bb69de64e4c0d2f665ac2532f96b1c47ac2fab9a": {
-      "address": "0x02df3a3F960393F5B349E40A599FEda91a7cc1A7",
-      "txHash": "0xa6a8384e7f09a391cc781e6803b1dad3bbf7617599accaeb62e78c59816acf44",
+    "5b556c2a52ef5af1c199ee8ecedc626e20828f4d28fc0b8a7696901a91f75354": {
+      "address": "0xFD471836031dc5108809D173A067e8486B9047A3",
+      "txHash": "0x0656e42b6e8d4fc37d9cfcf6bdbc5ecb04c1142ce68b0697f4a5df96c7f108e9",
       "layout": {
         "storage": [
           {
@@ -406,13 +295,7 @@
             "contract": "MasterChefUpgradeable",
             "label": "firo",
             "type": "t_contract(FiroToken)3510",
-            "src": "contracts/MasterChefUpgradeable.sol:66"
-          },
-          {
-            "contract": "MasterChefUpgradeable",
-            "label": "devaddr",
-            "type": "t_address",
-            "src": "contracts/MasterChefUpgradeable.sol:69"
+            "src": "contracts/MasterChefUpgradeable.sol:68"
           },
           {
             "contract": "MasterChefUpgradeable",
@@ -429,19 +312,19 @@
           {
             "contract": "MasterChefUpgradeable",
             "label": "migrator",
-            "type": "t_contract(IMigratorChef)4715",
+            "type": "t_contract(IMigratorChef)4679",
             "src": "contracts/MasterChefUpgradeable.sol:75"
           },
           {
             "contract": "MasterChefUpgradeable",
             "label": "poolInfo",
-            "type": "t_array(t_struct(PoolInfo)4745_storage)dyn_storage",
+            "type": "t_array(t_struct(PoolInfo)4709_storage)dyn_storage",
             "src": "contracts/MasterChefUpgradeable.sol:77"
           },
           {
             "contract": "MasterChefUpgradeable",
             "label": "userInfo",
-            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)4733_storage))",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)4697_storage))",
             "src": "contracts/MasterChefUpgradeable.sol:79"
           },
           {
@@ -459,13 +342,13 @@
           {
             "contract": "MasterChefUpgradeable",
             "label": "vesting",
-            "type": "t_contract(Vesting)7227",
+            "type": "t_contract(Vesting)7124",
             "src": "contracts/MasterChefUpgradeable.sol:85"
           },
           {
             "contract": "MasterChefUpgradeable",
             "label": "locking",
-            "type": "t_contract(Locking)6661",
+            "type": "t_contract(Locking)6581",
             "src": "contracts/MasterChefUpgradeable.sol:87"
           },
           {
@@ -485,19 +368,16 @@
           "t_contract(FiroToken)3510": {
             "label": "contract FiroToken"
           },
-          "t_address": {
-            "label": "address"
-          },
           "t_uint256": {
             "label": "uint256"
           },
-          "t_contract(IMigratorChef)4715": {
+          "t_contract(IMigratorChef)4679": {
             "label": "contract IMigratorChef"
           },
-          "t_array(t_struct(PoolInfo)4745_storage)dyn_storage": {
+          "t_array(t_struct(PoolInfo)4709_storage)dyn_storage": {
             "label": "struct MasterChefUpgradeable.PoolInfo[]"
           },
-          "t_struct(PoolInfo)4745_storage": {
+          "t_struct(PoolInfo)4709_storage": {
             "label": "struct MasterChefUpgradeable.PoolInfo",
             "members": [
               {
@@ -528,13 +408,16 @@
           "t_bool": {
             "label": "bool"
           },
-          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)4733_storage))": {
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)4697_storage))": {
             "label": "mapping(uint256 => mapping(address => struct MasterChefUpgradeable.UserInfo))"
           },
-          "t_mapping(t_address,t_struct(UserInfo)4733_storage)": {
+          "t_mapping(t_address,t_struct(UserInfo)4697_storage)": {
             "label": "mapping(address => struct MasterChefUpgradeable.UserInfo)"
           },
-          "t_struct(UserInfo)4733_storage": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_struct(UserInfo)4697_storage": {
             "label": "struct MasterChefUpgradeable.UserInfo",
             "members": [
               {
@@ -547,631 +430,10 @@
               }
             ]
           },
-          "t_contract(Vesting)7227": {
+          "t_contract(Vesting)7124": {
             "label": "contract Vesting"
           },
-          "t_contract(Locking)6661": {
-            "label": "contract Locking"
-          },
-          "t_array(t_uint256)49_storage": {
-            "label": "uint256[49]"
-          },
-          "t_array(t_uint256)50_storage": {
-            "label": "uint256[50]"
-          }
-        }
-      }
-    },
-    "d349bd146ab417da4cbba5e79e706942ca27295a46a2f0c5fb41fef139aa6a76": {
-      "address": "0x4b6aB5F819A515382B0dEB6935D793817bB4af28",
-      "txHash": "0xf86ece78b1135eb98182fd4d35e815c67c7480477c07c1e0c179c580ebc8095c",
-      "layout": {
-        "storage": [
-          {
-            "contract": "Initializable",
-            "label": "_initialized",
-            "type": "t_bool",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
-          },
-          {
-            "contract": "Initializable",
-            "label": "_initializing",
-            "type": "t_bool",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
-          },
-          {
-            "contract": "ERC1967UpgradeUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
-          },
-          {
-            "contract": "UUPSUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:80"
-          },
-          {
-            "contract": "ContextUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
-          },
-          {
-            "contract": "OwnableUpgradeable",
-            "label": "_owner",
-            "type": "t_address",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
-          },
-          {
-            "contract": "OwnableUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)49_storage",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "firo",
-            "type": "t_contract(FiroToken)3510",
-            "src": "contracts/MasterChef.sol:68"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "devaddr",
-            "type": "t_address",
-            "src": "contracts/MasterChef.sol:71"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "bonusEndBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:73"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "firoPerBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:75"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "migrator",
-            "type": "t_contract(IMigratorChef)3531",
-            "src": "contracts/MasterChef.sol:77"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "poolInfo",
-            "type": "t_array(t_struct(PoolInfo)3561_storage)dyn_storage",
-            "src": "contracts/MasterChef.sol:79"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "userInfo",
-            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3549_storage))",
-            "src": "contracts/MasterChef.sol:81"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "totalAllocPoint",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:83"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "startBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:85"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "vesting",
-            "type": "t_contract(Vesting)7235",
-            "src": "contracts/MasterChef.sol:87"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "locking",
-            "type": "t_contract(Locking)6669",
-            "src": "contracts/MasterChef.sol:89"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "lockingDuration",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:91"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "vestingDuration",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:93"
-          }
-        ],
-        "types": {
-          "t_contract(FiroToken)3510": {
-            "label": "contract FiroToken"
-          },
-          "t_address": {
-            "label": "address"
-          },
-          "t_uint256": {
-            "label": "uint256"
-          },
-          "t_contract(IMigratorChef)3531": {
-            "label": "contract IMigratorChef"
-          },
-          "t_array(t_struct(PoolInfo)3561_storage)dyn_storage": {
-            "label": "struct MasterChef.PoolInfo[]"
-          },
-          "t_struct(PoolInfo)3561_storage": {
-            "label": "struct MasterChef.PoolInfo",
-            "members": [
-              {
-                "label": "lpToken",
-                "type": "t_contract(IERC20Upgradeable)767"
-              },
-              {
-                "label": "allocPoint",
-                "type": "t_uint256"
-              },
-              {
-                "label": "lastRewardBlock",
-                "type": "t_uint256"
-              },
-              {
-                "label": "accFiroPerShare",
-                "type": "t_uint256"
-              },
-              {
-                "label": "isEmergency",
-                "type": "t_bool"
-              }
-            ]
-          },
-          "t_contract(IERC20Upgradeable)767": {
-            "label": "contract IERC20Upgradeable"
-          },
-          "t_bool": {
-            "label": "bool"
-          },
-          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3549_storage))": {
-            "label": "mapping(uint256 => mapping(address => struct MasterChef.UserInfo))"
-          },
-          "t_mapping(t_address,t_struct(UserInfo)3549_storage)": {
-            "label": "mapping(address => struct MasterChef.UserInfo)"
-          },
-          "t_struct(UserInfo)3549_storage": {
-            "label": "struct MasterChef.UserInfo",
-            "members": [
-              {
-                "label": "amount",
-                "type": "t_uint256"
-              },
-              {
-                "label": "rewardDebt",
-                "type": "t_uint256"
-              }
-            ]
-          },
-          "t_contract(Vesting)7235": {
-            "label": "contract Vesting"
-          },
-          "t_contract(Locking)6669": {
-            "label": "contract Locking"
-          },
-          "t_array(t_uint256)49_storage": {
-            "label": "uint256[49]"
-          },
-          "t_array(t_uint256)50_storage": {
-            "label": "uint256[50]"
-          }
-        }
-      }
-    },
-    "9e8db481d3f4e4002dc7bf86e83b26701471b4306660ecd3c02e1e4b756622fe": {
-      "address": "0xF8e31cb472bc70500f08Cd84917E5A1912Ec8397",
-      "txHash": "0xa75cc9164e258b91a66f854e4b580e9b6b2abae8a2e92d23253439a51cc1db41",
-      "layout": {
-        "storage": [
-          {
-            "contract": "Initializable",
-            "label": "_initialized",
-            "type": "t_bool",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
-          },
-          {
-            "contract": "Initializable",
-            "label": "_initializing",
-            "type": "t_bool",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
-          },
-          {
-            "contract": "ERC1967UpgradeUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
-          },
-          {
-            "contract": "UUPSUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:80"
-          },
-          {
-            "contract": "ContextUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
-          },
-          {
-            "contract": "OwnableUpgradeable",
-            "label": "_owner",
-            "type": "t_address",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
-          },
-          {
-            "contract": "OwnableUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)49_storage",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "firo",
-            "type": "t_contract(FiroToken)3510",
-            "src": "contracts/MasterChef.sol:68"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "devaddr",
-            "type": "t_address",
-            "src": "contracts/MasterChef.sol:71"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "bonusEndBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:73"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "firoPerBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:75"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "migrator",
-            "type": "t_contract(IMigratorChef)3531",
-            "src": "contracts/MasterChef.sol:77"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "poolInfo",
-            "type": "t_array(t_struct(PoolInfo)3561_storage)dyn_storage",
-            "src": "contracts/MasterChef.sol:79"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "userInfo",
-            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3549_storage))",
-            "src": "contracts/MasterChef.sol:81"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "totalAllocPoint",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:83"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "startBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:85"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "vesting",
-            "type": "t_contract(Vesting)6025",
-            "src": "contracts/MasterChef.sol:87"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "locking",
-            "type": "t_contract(Locking)5459",
-            "src": "contracts/MasterChef.sol:89"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "lockingDuration",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:91"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "vestingDuration",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:93"
-          }
-        ],
-        "types": {
-          "t_contract(FiroToken)3510": {
-            "label": "contract FiroToken"
-          },
-          "t_address": {
-            "label": "address"
-          },
-          "t_uint256": {
-            "label": "uint256"
-          },
-          "t_contract(IMigratorChef)3531": {
-            "label": "contract IMigratorChef"
-          },
-          "t_array(t_struct(PoolInfo)3561_storage)dyn_storage": {
-            "label": "struct MasterChef.PoolInfo[]"
-          },
-          "t_struct(PoolInfo)3561_storage": {
-            "label": "struct MasterChef.PoolInfo",
-            "members": [
-              {
-                "label": "lpToken",
-                "type": "t_contract(IERC20Upgradeable)767"
-              },
-              {
-                "label": "allocPoint",
-                "type": "t_uint256"
-              },
-              {
-                "label": "lastRewardBlock",
-                "type": "t_uint256"
-              },
-              {
-                "label": "accFiroPerShare",
-                "type": "t_uint256"
-              },
-              {
-                "label": "isEmergency",
-                "type": "t_bool"
-              }
-            ]
-          },
-          "t_contract(IERC20Upgradeable)767": {
-            "label": "contract IERC20Upgradeable"
-          },
-          "t_bool": {
-            "label": "bool"
-          },
-          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3549_storage))": {
-            "label": "mapping(uint256 => mapping(address => struct MasterChef.UserInfo))"
-          },
-          "t_mapping(t_address,t_struct(UserInfo)3549_storage)": {
-            "label": "mapping(address => struct MasterChef.UserInfo)"
-          },
-          "t_struct(UserInfo)3549_storage": {
-            "label": "struct MasterChef.UserInfo",
-            "members": [
-              {
-                "label": "amount",
-                "type": "t_uint256"
-              },
-              {
-                "label": "rewardDebt",
-                "type": "t_uint256"
-              }
-            ]
-          },
-          "t_contract(Vesting)6025": {
-            "label": "contract Vesting"
-          },
-          "t_contract(Locking)5459": {
-            "label": "contract Locking"
-          },
-          "t_array(t_uint256)49_storage": {
-            "label": "uint256[49]"
-          },
-          "t_array(t_uint256)50_storage": {
-            "label": "uint256[50]"
-          }
-        }
-      }
-    },
-    "f4954e491f463b2a71d721a6ade19dd7cecea27e16a112eedd84049481ee0ff4": {
-      "address": "0x276C216D241856199A83bf27b2286659e5b877D3",
-      "txHash": "0x957422b4d33661ea6baf76f2c14b4fa782864a4de8eb97936729e42af66398a4",
-      "layout": {
-        "storage": [
-          {
-            "contract": "Initializable",
-            "label": "_initialized",
-            "type": "t_bool",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
-          },
-          {
-            "contract": "Initializable",
-            "label": "_initializing",
-            "type": "t_bool",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
-          },
-          {
-            "contract": "ERC1967UpgradeUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
-          },
-          {
-            "contract": "UUPSUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:80"
-          },
-          {
-            "contract": "ContextUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)50_storage",
-            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
-          },
-          {
-            "contract": "OwnableUpgradeable",
-            "label": "_owner",
-            "type": "t_address",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
-          },
-          {
-            "contract": "OwnableUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)49_storage",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "firo",
-            "type": "t_contract(FiroToken)3510",
-            "src": "contracts/MasterChef.sol:68"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "devaddr",
-            "type": "t_address",
-            "src": "contracts/MasterChef.sol:71"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "bonusEndBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:73"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "firoPerBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:75"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "migrator",
-            "type": "t_contract(IMigratorChef)3531",
-            "src": "contracts/MasterChef.sol:77"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "poolInfo",
-            "type": "t_array(t_struct(PoolInfo)3561_storage)dyn_storage",
-            "src": "contracts/MasterChef.sol:79"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "userInfo",
-            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3549_storage))",
-            "src": "contracts/MasterChef.sol:81"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "totalAllocPoint",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:83"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "startBlock",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:85"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "vesting",
-            "type": "t_contract(Vesting)7227",
-            "src": "contracts/MasterChef.sol:87"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "locking",
-            "type": "t_contract(Locking)6661",
-            "src": "contracts/MasterChef.sol:89"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "lockingDuration",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:91"
-          },
-          {
-            "contract": "MasterChef",
-            "label": "vestingDuration",
-            "type": "t_uint256",
-            "src": "contracts/MasterChef.sol:93"
-          }
-        ],
-        "types": {
-          "t_contract(FiroToken)3510": {
-            "label": "contract FiroToken"
-          },
-          "t_address": {
-            "label": "address"
-          },
-          "t_uint256": {
-            "label": "uint256"
-          },
-          "t_contract(IMigratorChef)3531": {
-            "label": "contract IMigratorChef"
-          },
-          "t_array(t_struct(PoolInfo)3561_storage)dyn_storage": {
-            "label": "struct MasterChef.PoolInfo[]"
-          },
-          "t_struct(PoolInfo)3561_storage": {
-            "label": "struct MasterChef.PoolInfo",
-            "members": [
-              {
-                "label": "lpToken",
-                "type": "t_contract(IERC20Upgradeable)767"
-              },
-              {
-                "label": "allocPoint",
-                "type": "t_uint256"
-              },
-              {
-                "label": "lastRewardBlock",
-                "type": "t_uint256"
-              },
-              {
-                "label": "accFiroPerShare",
-                "type": "t_uint256"
-              },
-              {
-                "label": "isEmergency",
-                "type": "t_bool"
-              }
-            ]
-          },
-          "t_contract(IERC20Upgradeable)767": {
-            "label": "contract IERC20Upgradeable"
-          },
-          "t_bool": {
-            "label": "bool"
-          },
-          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3549_storage))": {
-            "label": "mapping(uint256 => mapping(address => struct MasterChef.UserInfo))"
-          },
-          "t_mapping(t_address,t_struct(UserInfo)3549_storage)": {
-            "label": "mapping(address => struct MasterChef.UserInfo)"
-          },
-          "t_struct(UserInfo)3549_storage": {
-            "label": "struct MasterChef.UserInfo",
-            "members": [
-              {
-                "label": "amount",
-                "type": "t_uint256"
-              },
-              {
-                "label": "rewardDebt",
-                "type": "t_uint256"
-              }
-            ]
-          },
-          "t_contract(Vesting)7227": {
-            "label": "contract Vesting"
-          },
-          "t_contract(Locking)6661": {
+          "t_contract(Locking)6581": {
             "label": "contract Locking"
           },
           "t_array(t_uint256)49_storage": {
