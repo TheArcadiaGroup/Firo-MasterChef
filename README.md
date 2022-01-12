@@ -11,11 +11,9 @@ Copy env.example to .env and fill the required information
 For example:
 PRIVATE_KEY = ""
 INFURA_KEY = ""
-DEV_ADDRESS = ""  (Developer address will be receivered firo reward)
 FIRO_PER_BLOCK = (firo*10^18)
-LOCKING_DURATION = (1day = 86400 = 24*60*60)
-VESTING_DURATION = (1day = 86400 = 24*60*60)
-VESTING_FIRO_SUPPLY =  (firo*10^18)
+LOCKING_DURATION = (86400 = 24*60*60 = 1day)
+VESTING_DURATION = (86400 = 24*60*60 = 1 day)
 START_REWARD_BLOCK_NUMBER = 
 END_REWARD_BLOCK_NUMBER=
 FIROTOKEN_CONTRACT_ADDRESS = ""
