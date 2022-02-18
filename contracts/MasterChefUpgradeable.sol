@@ -192,9 +192,9 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
         if (_to <= bonusEndBlock) {
             return _to.sub(_from);
         } else if (_from >= bonusEndBlock) {
-            return _to.sub(_from);
+            return 0;
         } else {
-            return bonusEndBlock.sub(_from).add(_to.sub(bonusEndBlock));
+            return bonusEndBlock.sub(_from);
         }
     }
 
@@ -400,12 +400,20 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
         return locking.getLockInfoLength(_addr);
     }
 
-    function setStartBlock (uint256 _startBlock)   external {
+    function setStartBlock (uint256 _startBlock) external onlyOwner {
         startBlock = _startBlock;
     } 
 
     function getStartBlock () external view returns (uint256) {
         return startBlock;
     } 
+
+    function setEndBlock (uint256 _bonusEndBlock) external onlyOwner {
+        bonusEndBlock = _bonusEndBlock;
+    } 
+
+    function getEndBlock () external view returns (uint256) {
+        return bonusEndBlock;
+    }
 }
 

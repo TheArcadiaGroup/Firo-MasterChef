@@ -192,9 +192,9 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         if (_to <= bonusEndBlock) {
             return _to.sub(_from);
         } else if (_from >= bonusEndBlock) {
-            return _to.sub(_from);
+            return 0;
         } else {
-            return bonusEndBlock.sub(_from).add(_to.sub(bonusEndBlock));
+            return bonusEndBlock.sub(_from);
         }
     }
 

@@ -13,7 +13,7 @@ async function advanceBlockTo(blockNumber) {
 
 describe("MasterChef Test", async function () {
     let [owner, user1, user2] = await ethers.getSigners();
-    let firotoken, masterchef, erc20Mock;
+    let firotoken, masterchef, erc20Mock, startReward_blocknumber;
     const FiroToken = await ethers.getContractFactory("FiroToken");
     const MasterChef = await ethers.getContractFactory('MasterChef');
     const ERC20Mock = await ethers.getContractFactory("ERC20Mock");
@@ -39,7 +39,7 @@ describe("MasterChef Test", async function () {
                 1,
                 startReward_blocknumber,
                 endReward_blocknumber,
-            2 * 86400,
+                86400,
                 86400], { unsafeAllow: ['delegatecall'], kind: 'uups' })
 
         const ERC20MockInstance = await ERC20Mock.deploy();
@@ -64,10 +64,11 @@ describe("MasterChef Test", async function () {
         expect(await masterchef.pendingFiro(0, user1.address)).to.equal("0");
         await masterchef.connect(user1).deposit(0, "0");
 
-        await advanceBlockTo(startReward_blocknumber + 2000);
-        expect(await masterchef.pendingFiro(0, user1.address)).to.equal("1999");
+        await advanceBlockTo(startReward_blocknumber + 1000);
+        expect(await masterchef.pendingFiro(0, user1.address)).to.equal("999");
 
         await advanceBlockTo(startReward_blocknumber + 3000 - 1);
+        expect(await masterchef.pendingFiro(0, user1.address)).to.equal("2998");
         await masterchef.connect(user1).deposit(0, "0");
 
         await ethers.provider.send('evm_increaseTime', [43200]);
@@ -154,7 +155,53 @@ describe("MasterChef Test", async function () {
     it("upgrade contract", async function () {
         const MasterChefUpgradeable = await ethers.getContractFactory('MasterChefUpgradeable')
         masterchefupgradeable = await upgrades.upgradeProxy(masterchef.address, MasterChefUpgradeable, { unsafeAllow: ['delegatecall'], kind: 'uups' }) //unsafeAllowCustomTypes: true,
-        await masterchefupgradeable.setStartBlock(2000);
-        expect(await masterchefupgradeable.getStartBlock()).to.be.equal(2000);
+
+        await masterchefupgradeable.setStartBlock(startReward_blocknumber);
+        expect(await masterchefupgradeable.getStartBlock()).to.be.equal(startReward_blocknumber);
+        
+        await masterchefupgradeable.setEndBlock(startReward_blocknumber + 1000);
+        expect(await masterchefupgradeable.getEndBlock()).to.be.equal(startReward_blocknumber + 1000);
+
+        await masterchef.add("100", erc20Mock.address, true);
+
+        await erc20Mock.connect(user1).approve(masterchef.address, "5000000");
+        await masterchefupgradeable.connect(user1).deposit(0, "3000");
+        expect(await erc20Mock.balanceOf(masterchefupgradeable.address)).to.equal("3000");
+
+        await advanceBlockTo(startReward_blocknumber - 1);
+        expect(await masterchefupgradeable.pendingFiro(0, user1.address)).to.equal("0");
+        await masterchefupgradeable.connect(user1).deposit(0, "0");
+
+        await advanceBlockTo(startReward_blocknumber + 1000);
+        expect(await masterchefupgradeable.pendingFiro(0, user1.address)).to.equal("999");
+
+        await advanceBlockTo(startReward_blocknumber + 4000 - 1);
+        expect(await masterchefupgradeable.pendingFiro(0, user1.address)).to.equal("999");
+
+        await masterchefupgradeable.connect(user1).deposit(0, "0");
+        await ethers.provider.send('evm_increaseTime', [43200]);
+        beforeFiroToken = await firotoken.balanceOf(user1.address);
+        await masterchefupgradeable.unlockVesting(user1.address);
+        afterFiroToken = await firotoken.balanceOf(user1.address);
+        expect(afterFiroToken - beforeFiroToken).to.equal(499);
+
+        await ethers.provider.send('evm_increaseTime', [43200]);
+        beforeFiroToken = await firotoken.balanceOf(user1.address);
+        await masterchefupgradeable.unlockVesting(user1.address);
+        afterFiroToken = await firotoken.balanceOf(user1.address);
+        expect(afterFiroToken - beforeFiroToken).to.equal(500);
+
+        await ethers.provider.send('evm_increaseTime', [1]);
+        beforeFiroToken = await firotoken.balanceOf(user1.address);
+        await masterchefupgradeable.unlockVesting(user1.address);
+        afterFiroToken = await firotoken.balanceOf(user1.address);
+        expect(afterFiroToken - beforeFiroToken).to.equal(0);
+
+        await masterchefupgradeable.connect(user1).deposit(0, "2000");
+        await advanceBlockTo(startReward_blocknumber + 5000);
+        await masterchefupgradeable.connect(user1).deposit(0, "0");
+        await advanceBlockTo(startReward_blocknumber + 8000);
+        expect(await masterchefupgradeable.pendingFiro(0, user1.address)).to.equal("0");
+
     })
 })

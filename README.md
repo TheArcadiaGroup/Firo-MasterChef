@@ -9,14 +9,23 @@ npm i
 Copy env.example to .env and fill the required information
 
 For example:
-PRIVATE_KEY = ""
+
+PRIVATE_KEY = 
+
 FIRO_PER_BLOCK = (firo*10^18)
-LOCKING_DURATION = (86400 = 24*60*60 = 1day)
-VESTING_DURATION = (86400 = 24*60*60 = 1 day)
+
+LOCKING_DURATION = (86400 = 1 day)
+
+VESTING_DURATION = (86400 = 1 day)
+
 START_REWARD_BLOCK_NUMBER = 
+
 END_REWARD_BLOCK_NUMBER=
-FIROTOKEN_CONTRACT_ADDRESS = ""
-LPTOKEN_CONTRACT_ADDRESS = ""
+
+FIROTOKEN_CONTRACT_ADDRESS = 
+
+LPTOKEN_CONTRACT_ADDRESS = 
+
 BSC_APIKEY = (apikey for verifying the contract)
 
 ## deployments on bsctestnet
