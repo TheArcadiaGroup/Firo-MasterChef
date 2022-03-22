@@ -26,14 +26,17 @@ const {
     log('  - network id:          ', chainId);
     log(' ');
   
-    const masterChefAddress = require(`../deployments/${chainId}/MasterChef.json`).address
-    console.log("masterChefAddress:", masterChefAddress)
-
+    let masterChefAddress = "0x48764CD6683226BD6F2E093eb9561AE751354c7a"
   
     const MasterChefUpgradeable = await ethers.getContractFactory('MasterChefUpgradeable')
     masterchefupgradeable = await upgrades.upgradeProxy(masterChefAddress, MasterChefUpgradeable, { unsafeAllow: ['delegatecall'], kind: 'uups' }) //unsafeAllowCustomTypes: true,
 
     log('  - MasterChefUpgradeable:         ', masterchefupgradeable.address);
+    
+    // await masterchefupgradeable.setStartBlock(startReward_blocknumber);
+    
+    // await masterchefupgradeable.setEndBlock(endReward_blocknumber);
+
     // await masterchefupgradeable.add("100", lptoken.address, true);
 
     deployData['MasterChefUpgradeable'] = {
