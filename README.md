@@ -6,7 +6,7 @@ npm i
 ```
 
 ## configure deployment keys
-Copy env.example to .env and fill the required information
+Create new file .env and copy env.example to .env and fill the required information
 
 For example:
 
@@ -33,8 +33,9 @@ BSC_APIKEY = (apikey for verifying the contract)
 ```
 npx hardhat deploy --network bscmainnet --tags masterchef
 
-extend EndBlock: please update value of masterchefAddress and endBlock in deploy/extendEndBlock.js before run the command:
+extend EndBlock: please update value of masterchefAddress and endBlock in deploy/extendEndBlock.js before running the command:
 npx hardhat deploy --network bscmainnet --tags extendendblock
+(if only extending EndBlock, only input value of private key(PRIVATE_KEY =) in .env is enough)
 
 ```
 
