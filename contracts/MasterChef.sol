@@ -399,4 +399,20 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     function getLockInfoLength(address _addr) external view returns (uint256) {
         return locking.getLockInfoLength(_addr);
     }
+
+    function setStartBlock (uint256 _startBlock) external onlyOwner {
+        startBlock = _startBlock;
+    } 
+
+    function getStartBlock () external view returns (uint256) {
+        return startBlock;
+    } 
+
+    function setEndBlock (uint256 _bonusEndBlock) external onlyOwner {
+        bonusEndBlock = _bonusEndBlock;
+    } 
+
+    function getEndBlock () external view returns (uint256) {
+        return bonusEndBlock;
+    }
 }

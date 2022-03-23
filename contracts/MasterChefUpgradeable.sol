@@ -90,6 +90,8 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
 
     uint256 public vestingDuration;
 
+    uint256 public test;
+
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event EmergencyWithdraw(
@@ -415,5 +417,12 @@ contract MasterChefUpgradeable is Initializable, UUPSUpgradeable, OwnableUpgrade
     function getEndBlock () external view returns (uint256) {
         return bonusEndBlock;
     }
-}
 
+    function setTest (uint256 _test) external onlyOwner {
+        test = _test;
+    } 
+
+    function getTest () external view returns (uint256) {
+        return test;
+    }
+}

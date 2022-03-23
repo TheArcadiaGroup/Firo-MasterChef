@@ -54,8 +54,10 @@ module.exports = async (hre) => {
     process.env.VESTING_DURATION], { unsafeAllow: ['delegatecall'], kind: 'uups' })
   await locking.initialize(masterchef.address);
   await vesting.initialize(firotoken.address, masterchef.address);
-  log('  - MasterChef:         ', masterchef.address);
+
   await masterchef.add("100", lptoken.address, true);
+
+  log('  - MasterChef:         ', masterchef.address);
 
   deployData['MasterChef'] = {
     abi: getContractAbi('MasterChef'),
