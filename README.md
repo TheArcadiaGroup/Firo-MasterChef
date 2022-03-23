@@ -33,7 +33,7 @@ BSC_APIKEY = (apikey for verifying the contract)
 ```
 npx hardhat deploy --network bscmainnet --tags masterchef
 
-extend EndBlock: please update value of masterchefAddress and endBlock before run the command:
+extend EndBlock: please update value of masterchefAddress and endBlock in deploy/extendEndBlock.js before run the command:
 npx hardhat deploy --network bscmainnet --tags extendendblock
 
 ```
