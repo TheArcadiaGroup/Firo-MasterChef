@@ -5,8 +5,8 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 // mock class using ERC20
-contract ERC20Mock is ERC20 {
-    constructor() payable ERC20("ERC20Mock", "ERC20Mock") {
+contract ERC20LP is ERC20 {
+    constructor() payable ERC20("ERC20LP", "ERC20LP") {
         _mint(msg.sender, 10000000000e18);
     }
 

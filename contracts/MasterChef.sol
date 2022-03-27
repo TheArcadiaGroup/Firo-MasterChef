@@ -87,7 +87,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     Locking public locking;
 
     uint256 public lockingDuration;
-
+    
     uint256 public vestingDuration;
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
@@ -218,10 +218,10 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
                 .mul(pool.allocPoint)
                 .div(totalAllocPoint);
             accFiroPerShare = accFiroPerShare.add(
-                firoReward.mul(1e12).div(lpSupply)
+                firoReward.mul(1e18).div(lpSupply)
             );
         }
-        return user.amount.mul(accFiroPerShare).div(1e12).sub(user.rewardDebt);
+        return user.amount.mul(accFiroPerShare).div(1e18).sub(user.rewardDebt);
     }
 
     // Update reward vairables for all pools. Be careful of gas spending!
@@ -249,7 +249,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
             .mul(pool.allocPoint)
             .div(totalAllocPoint);
         pool.accFiroPerShare = pool.accFiroPerShare.add(
-            firoReward.mul(1e12).div(lpSupply)
+            firoReward.mul(1e18).div(lpSupply)
         );
         pool.lastRewardBlock = block.number;
     }
@@ -263,7 +263,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
             uint256 pending = user
                 .amount
                 .mul(pool.accFiroPerShare)
-                .div(1e12)
+                .div(1e18)
                 .sub(user.rewardDebt);
             if (pending > 0) {
                 addVesting(
@@ -281,7 +281,7 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         );
 
         user.amount = user.amount.add(_amount);
-        user.rewardDebt = user.amount.mul(pool.accFiroPerShare).div(1e12);
+        user.rewardDebt = user.amount.mul(pool.accFiroPerShare).div(1e18);
         emit Deposit(msg.sender, _pid, _amount);
     }
 
@@ -291,14 +291,14 @@ contract MasterChef is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         UserInfo storage user = userInfo[_pid][msg.sender];
         require(user.amount >= _amount, "withdraw: not good");
         updatePool(_pid);
-        uint256 pending = user.amount.mul(pool.accFiroPerShare).div(1e12).sub(
+        uint256 pending = user.amount.mul(pool.accFiroPerShare).div(1e18).sub(
             user.rewardDebt
         );
         if (pending > 0) {
             addVesting(msg.sender, pending, block.timestamp, vestingDuration);
         }
         user.amount = user.amount.sub(_amount);
-        user.rewardDebt = user.amount.mul(pool.accFiroPerShare).div(1e12);
+        user.rewardDebt = user.amount.mul(pool.accFiroPerShare).div(1e18);
         pool.lpToken.safeApprove(address(locking), _amount);
         lock(address(pool.lpToken), msg.sender, _amount, lockingDuration);
         emit Withdraw(msg.sender, _pid, _amount);

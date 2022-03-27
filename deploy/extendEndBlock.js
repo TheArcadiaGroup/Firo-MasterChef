@@ -12,7 +12,7 @@ const {
     const { ethers, upgrades } = hre;
   
     let masterchefAddress = "0xC6648BD0bbdfD58A19A04211B9A345790DeDD229"
-    let endBlock = 50000000
+    let endBlock = 10000000
 
     const masterchef = await ethers.getContractAt(MASTERCHEF_ABI, masterchefAddress);
 
